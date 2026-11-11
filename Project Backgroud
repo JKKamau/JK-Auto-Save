@@ -1,0 +1,22 @@
+### Problem Background
+
+At UEAB (University of Eastern Africa, Baraton), practical examination periods in the computer labs present a high-stakes environment for students. During these timed sessions, students draft complex software code, database schemes, or detailed documentation under significant time constraints.
+
+However, unexpected power blackouts and sudden electrical interruptions pose a critical risk to academic performance. When a power failure occurs, any unsaved progress in active applications—such as word processors, IDEs, or design software—is permanently lost. For students immersed in solving exam problems, manually pausing every few minutes to hit a save shortcut is easily forgotten due to stress and focus. This leads to lost work, incomplete exam submissions, unnecessary panic, and unfair evaluation challenges for instructors.
+
+---
+
+### How the JK Auto-Saver Fits as the Solution
+
+The **JK Auto-Saver ** directly addresses the specific vulnerabilities of the Baraton computer lab environment by acting as an invisible, automated safety net.
+
+* **Automated Background Protection:**
+The daemon runs continuously in the background, issuing a standard system save command (`Ctrl+S` on Windows or `Cmd+S` on macOS) every 4 minutes. Students no longer need to break their concentration to remember to save manually.
+* **Keystroke & Collision Safety:**
+Before executing a save, the script listens to key events. If a student is actively typing, it defers the save operation until all physical keys are released. This prevents input collisions, lag, or accidental character overwrites while a student is mid-sentence or mid-code line.
+* **Smart Application Focus Detection:**
+The daemon verifies that the user is actively focused on a working application window before triggering a save. It skips save triggers when the screen is idle or showing desktop/system interfaces, ensuring clean and efficient operation.
+* **Zero-Interruption Shutdown for Invigilators:**
+During exam administration or system maintenance, invigilators or students can instantly terminate the daemon by pressing the **`<F1>`** function key. The app stops all background processes cleanly without requiring access to administrative tools or task managers.
+* **Lightweight & Cross-Platform Deployment:**
+Built with Python and bundled into a standalone executable (`.exe`), the daemon requires no complex installation or heavy system resources. It runs efficiently on legacy or updated lab machinery without causing system slowdowns during critical examination hours.
